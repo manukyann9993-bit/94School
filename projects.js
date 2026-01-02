@@ -78,14 +78,62 @@ const projects = [
         title: "Թվային Արխիվ",
         summary: "Դպրոցի փաստաթղթերի և պատմության կենտրոնացված հաբ:",
         image: "school_history.png",
-        lecture: "<h1>Թվային Արխիվ</h1><p>Բովանդակությունը շուտով...</p>"
+        lecture: `
+            <div class="lecture-header">
+                <span class="section-label">Պատմություն</span>
+                <h1>Թվային Արխիվ</h1>
+            </div>
+            <div class="lecture-body">
+                <div class="lecture-main">
+                    <h2>Նախագծի Էությունը</h2>
+                    <p>Մենք թվայնացնում ենք դպրոցի տասնամյակների պատմությունը՝ սկսած հիմնադրման օրվանից մինչև այսօր:</p>
+                    <img src="school_history.png" class="lecture-images">
+                    <h2>Նպատակ</h2>
+                    <p>Ստեղծել հասանելի հարթակ, որտեղ յուրաքանչյուր աշակերտ և շրջանավարտ կկարողանա գտնել իրեն հետաքրքրող տեղեկատվությունը:</p>
+                </div>
+                <div class="lecture-sidebar">
+                    <div class="sidebar-widget">
+                        <span class="sidebar-label">Բաժին</span>
+                        <span class="sidebar-value">Հասարակագիտություն</span>
+                    </div>
+                    <div class="sidebar-widget">
+                        <span class="sidebar-label">Տարեթիվ</span>
+                        <span class="sidebar-value">2024</span>
+                    </div>
+                </div>
+            </div>
+        `
     },
     {
         id: "ai-assistant",
         title: "Աուրա ԱԻ",
         summary: "Աշակերտների կողմից ստեղծված վիրտուալ օգնական գրադարանի համար:",
         image: "campus_life.png",
-        lecture: "<h1>Աուրա ԱԻ</h1><p>Բովանդակությունը շուտով...</p>"
+        lecture: `
+            <div class="lecture-header">
+                <span class="section-label">Տեխնոլոգիա</span>
+                <h1>Աուրա ԱԻ</h1>
+            </div>
+            <div class="lecture-body">
+                <div class="lecture-main">
+                    <h2>Ինովացիա</h2>
+                    <p>Աուրան արհեստական բանականության վրա հիմնված օգնական է, որն օգնում է աշակերտներին գտնել անհրաժեշտ գրականությունը:</p>
+                    <img src="campus_life.png" class="lecture-images">
+                    <h2>Ֆունկցիոնալություն</h2>
+                    <p>Այն կարող է պատասխանել հարցերին, առաջարկել գրքեր և նույնիսկ օգնել ուսումնական պլանի կազմման հարցում:</p>
+                </div>
+                <div class="lecture-sidebar">
+                    <div class="sidebar-widget">
+                        <span class="sidebar-label">Բաժին</span>
+                        <span class="sidebar-value">ՏՏ / ԱԻ</span>
+                    </div>
+                    <div class="sidebar-widget">
+                        <span class="sidebar-label">Կարգավիճակ</span>
+                        <span class="sidebar-value">Մշակման փուլում</span>
+                    </div>
+                </div>
+            </div>
+        `
     }
 ];
 
