@@ -1,4 +1,3 @@
-// Simplified Data for Home Page
 const professions = [
     {
         id: "humanities",
@@ -28,7 +27,7 @@ const professions = [
         id: "BioChemistry",
         title: "Կենսաքիմիա",
         summary: "Կենսաբանության և քիմիայի համակողմանի ուսումնասիրություն:",
-        details: "Այս ուղղությունը կենտրոնանում է կենդանի օրգանիզմների և նյութերի քիմիական կառուցվածքի հետազոտման վրա Այն հիանալի նախապատրաստական հիմք է ապագա բժիշկների դեղագործների և բնապահպանների համար ովքեր ցանկանում են հասկանալ կյանքի գիտական հիմքերը:"
+        details: "Այղ ուղղությունը կենտրոնանում է կենդանի օրգանիզմների և նյութերի քիմիական կառուցվածքի հետազոտման վրա Այն հիանալի նախապատրաստական հիմք է ապագա բժիշկների դեղագործների և բնապահպանների համար ովքեր ցանկանում են հասկանալ կյանքի գիտական հիմքերը:"
     },
     {
         id: "History",
@@ -38,13 +37,65 @@ const professions = [
     },
 ];
 
+const newsData = [
+    {
+        id: 1,
+        date: "Հունվար 3, 2026",
+        title: "Նոր Տեխնոլոգիական Լաբորատորիայի Բացում",
+        image: "school_hero.png",
+        summary: "Մեր դպրոցում բացվեց նորագույն սարքավորումներով հագեցած լաբորատորիա՝ ռոբոտաշինության և ԱԻ հետազոտությունների համար:",
+        content: `
+            <p>Լաբորատորիան հնարավորություն կտա աշակերտներին գործնականում կիրառել իրենց գիտելիքները և ստեղծել նորարարական նախագծեր։ Այստեղ տեղադրված են վերջին սերնդի 3D տպիչներ, VR սարքավորումներ և հզոր համակարգիչներ։</p>
+            <p>Բացման արարողությանը ներկա էին կրթության նախարարության ներկայացուցիչները և առաջատար ՏՏ ընկերությունների ղեկավարներ, ովքեր խոստացան աջակցել մեր աշակերտներին իրենց հետագա հետազոտություններում։</p>
+        `
+    },
+    {
+        id: 2,
+        date: "Դեկտեմբեր 25, 2025",
+        title: "Շախմատի Ներդպրոցական Մրցաշար",
+        image: "campus_life.png",
+        summary: "Ավարտվեց ամենամյա շախմատային մրցաշարը, որին մասնակցեցին ավելի քան 50 աշակերտներ բոլոր դասարաններից:",
+        content: `
+            <p>Լարված պայքարում հաղթող ճանաչվեց 11-րդ դասարանի աշակերտ Արմեն Սարգսյանը։ Մրցաշարը նպատակ ուներ խրախուսել տրամաբանական մտածողությունը և ռազմավարական հմտությունները սովորողների շրջանում։</p>
+            <p>Բոլոր մասնակիցները ստացան հավաստագրեր, իսկ հաղթողները՝ պատվոգրեր և հուշանվերներ։ Մրցաշարը կազմակերպվել էր աշակերտական խորհրդի և ֆիզիկական կուլտուրայի ամբիոնի կողմից։</p>
+        `
+    },
+    {
+        id: 3,
+        date: "Դեկտեմբեր 20, 2025",
+        title: "Այցելություն ԳԱ Ակադեմիա",
+        image: "school_history.png",
+        summary: "Բնագիտական հոսքի աշակերտները հյուրընկալվեցին ԳԱԱ-ում, որտեղ ծանոթացան հայ գիտնականների վերջին ձեռքբերումներին:",
+        content: `
+            <p>Էքսկուրսիան շատ տպավորիչ էր և ոգեշնչող մեր աշակերտների համար։ Նրանք հնարավորություն ունեցան տեսնել իրական լաբորատոր պայմաններում կատարվող հետազոտությունները և լսել առաջատար գիտնականների դասախոսությունները։</p>
+            <p>Այսպիսի այցելությունները օգնում են աշակերտներին ավելի հստակ պատկերացնել իրենց ապագա մասնագիտական ուղին և ավելի մեծ հետաքրքրությամբ ուսումնասիրել բնագիտական առարկաները։</p>
+        `
+    }
+];
+
 function init() {
     const profGrid = document.getElementById('professions-grid');
     if (profGrid) {
         profGrid.innerHTML = professions.map(p => `
             <div class="card" onclick="openProfession('${p.id}')">
-                <h3>${p.title}</h3>
-                <p>${p.summary}</p>
+                <div class="card-content">
+                    <h3>${p.title}</h3>
+                    <p>${p.summary}</p>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    const newsGrid = document.getElementById('latest-news-grid');
+    if (newsGrid) {
+        newsGrid.innerHTML = newsData.slice(0, 3).map(n => `
+            <div class="card" onclick="openNews(${n.id})">
+                <img src="${n.image}" class="card-img" alt="${n.title}">
+                <div class="card-content">
+                    <div class="news-date">${n.date}</div>
+                    <h3>${n.title}</h3>
+                    <p>${n.summary}</p>
+                </div>
             </div>
         `).join('');
     }
@@ -57,7 +108,25 @@ function openProfession(id) {
         <div class="modal-profession" style="position: relative;">
             <button class="close-btn" onclick="closeOverlay()">✕</button>
             <h2 class="serif" style="font-size: 2.8rem; margin-bottom: 1.5rem; color: var(--primary);">${p.title}</h2>
-            <p style="font-size: 1.15rem; color: var(--text-muted); line-height: 1.8;">${p.details}</p>
+            <p style="font-size: 1.15rem; color: var(--text-muted); line-height: 2;">${p.details}</p>
+        </div>
+    `;
+    showOverlay();
+}
+
+function openNews(id) {
+    const n = newsData.find(item => item.id === id);
+    const container = document.getElementById('modal-container');
+    container.innerHTML = `
+        <div class="modal-news">
+            <button class="close-btn" onclick="closeOverlay()" style="position: fixed; top: 40px; right: 40px; background: #fff; z-index: 10;">✕</button>
+            <div class="news-expanded-header">
+                <span class="news-date">${n.date}</span>
+                <h1>${n.title}</h1>
+            </div>
+            <div class="news-expanded-body">
+                ${n.content}
+            </div>
         </div>
     `;
     showOverlay();

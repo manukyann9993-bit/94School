@@ -143,8 +143,10 @@ function init() {
         projGrid.innerHTML = projects.map(p => `
             <div class="card" onclick="openProject('${p.id}')">
                 <img src="${p.image}" class="card-img" alt="${p.title}">
-                <h3>${p.title}</h3>
-                <p>${p.summary}</p>
+                <div class="card-content">
+                    <h3>${p.title}</h3>
+                    <p>${p.summary}</p>
+                </div>
             </div>
         `).join('');
     }
@@ -154,9 +156,18 @@ function openProject(id) {
     const p = projects.find(item => item.id === id);
     const container = document.getElementById('modal-container');
     container.innerHTML = `
-        <div class="modal-project" style="position: relative;">
-            <button class="close-btn" onclick="closeOverlay()">✕</button>
-            ${p.lecture}
+        <div class="modal-project">
+            <button class="close-btn" onclick="closeOverlay()" style="position: fixed; top: 40px; right: 40px; background: #fff; z-index: 10;">✕</button>
+            <div class="project-hero">
+                <img src="${p.image}" class="project-hero-img">
+                <div class="project-hero-content">
+                    <h1>${p.title}</h1>
+                    <p>${p.summary}</p>
+                </div>
+            </div>
+            <div class="lecture-body" style="padding: 0 5%;">
+                ${p.lecture}
+            </div>
         </div>
     `;
     showOverlay();
