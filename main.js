@@ -88,7 +88,8 @@ function init() {
 
     const newsGrid = document.getElementById('latest-news-grid');
     if (newsGrid) {
-        newsGrid.innerHTML = newsData.slice(0, 3).map(n => `
+        const sortedNews = [...newsData].sort((a, b) => b.id - a.id);
+        newsGrid.innerHTML = sortedNews.slice(0, 3).map(n => `
             <div class="card" onclick="openNews(${n.id})">
                 <img src="${n.image}" class="card-img" alt="${n.title}">
                 <div class="card-content">
