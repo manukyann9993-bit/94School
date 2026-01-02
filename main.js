@@ -73,6 +73,101 @@ const newsData = [
     }
 ];
 
+const projectsData = [
+    {
+        id: "greenhouse",
+        id_num: 1,
+        date: "Սեպտեմբեր 15, 2024",
+        title: "Դպրոցական Ջերմոց",
+        summary: "Բուսաբանական կյանքի վերականգնումը ժամանակակից տեխնոլոգիաներով:",
+        image: "campus_life.png",
+        lecture: `
+            <div class="lecture-header">
+                <span class="section-label">Կենսատեխնոլոգիա</span>
+                <h1>Դպրոցական Ջերմոց</h1>
+            </div>
+            <div class="lecture-body">
+                <div class="lecture-main">
+                    <h2>Տեսլական</h2>
+                    <p>Այս նախագիծը ծնվել է մեր դպրոցի տարածքում հազվագյուտ բուսատեսակները պահպանելու ցանկությունից:</p>
+                    <img src="campus_life.png" class="lecture-images">
+                    <h2>Իրականացում</h2>
+                    <p>Մենք նախագծել ենք խոնավեցման հատուկ համակարգ, որը նմանակում է բնական անձրևները՝ միաժամանակ պահպանելով վերահսկվող կլիմա:</p>
+                    <h2>Արդյունք</h2>
+                    <p>Պատմության պահպանումը ժամանակակից ինժեներիայի միջոցով այս ուսումնական տարվա հիմնական թեման է:</p>
+                </div>
+                <div class="lecture-sidebar">
+                    <div class="sidebar-widget">
+                        <span class="sidebar-label">Բաժին</span>
+                        <span class="sidebar-value">Բնագիտություն</span>
+                    </div>
+                </div>
+            </div>
+        `
+    },
+    {
+        id: "rover",
+        id_num: 2,
+        date: "Նոյեմբեր 10, 2024",
+        title: "Ռոբոտաշինության Խմբակ",
+        summary: "Ինքնավար սարքերի ստեղծում և քարտեզագրում:",
+        image: "school_hero.png",
+        lecture: `
+            <div class="lecture-header">
+                <span class="section-label">Ռոբոտաշինություն</span>
+                <h1>Կամպուս Վոյաջեր</h1>
+            </div>
+            <div class="lecture-body">
+                <div class="lecture-main">
+                    <h2>Նպատակ</h2>
+                    <p>Ստեղծել ինքնավար ռոբոտ, որն ընդունակ է տեղաշարժվել դպրոցի բակում՝ հաղթահարելով տարբեր արգելքներ:</p>
+                    <img src="school_hero.png" class="lecture-images">
+                </div>
+            </div>
+        `
+    },
+    {
+        id: "digital-archive",
+        id_num: 3,
+        date: "Դեկտեմբեր 5, 2024",
+        title: "Թվային Արխիվ",
+        summary: "Դպրոցի փաստաթղթերի և պատմության կենտրոնացված հաբ:",
+        image: "school_history.png",
+        lecture: `
+            <div class="lecture-header">
+                <span class="section-label">Պատմություն</span>
+                <h1>Թվային Արխիվ</h1>
+            </div>
+            <div class="lecture-body">
+                <div class="lecture-main">
+                    <p>Մենք թվայնացնում ենք դպրոցի տասնամյակների պատմությունը՝ սկսած հիմնադրման օրվանից մինչև այսօր:</p>
+                    <img src="school_history.png" class="lecture-images">
+                </div>
+            </div>
+        `
+    },
+    {
+        id: "ai-assistant",
+        id_num: 4,
+        date: "Հունվար 2, 2025",
+        title: "Աուրա ԱԻ",
+        summary: "Աշակերտների կողմից ստեղծված վիրտուալ օգնական գրադարանի համար:",
+        image: "campus_life.png",
+        lecture: `
+            <div class="lecture-header">
+                <span class="section-label">Տեխնոլոգիա</span>
+                <h1>Աուրա ԱԻ</h1>
+            </div>
+            <div class="lecture-body">
+                <div class="lecture-main">
+                    <p>Աուրան արհեստական բանականության վրա հիմնված օգնական է, որն օգնում է աշակերտներին գտնել անհրաժեշտ գրականությունը:</p>
+                    <img src="campus_life.png" class="lecture-images">
+                </div>
+            </div>
+        `
+    }
+];
+
 function init() {
     const profGrid = document.getElementById('professions-grid');
     if (profGrid) {
@@ -90,7 +185,7 @@ function init() {
     if (newsGrid) {
         const sortedNews = [...newsData].sort((a, b) => b.id - a.id);
         newsGrid.innerHTML = sortedNews.slice(0, 3).map(n => `
-            <div class="card" onclick="openNews(${n.id})">
+            <div class="card card-news" onclick="openNews(${n.id})">
                 <img src="${n.image}" class="card-img" alt="${n.title}">
                 <div class="card-content">
                     <div class="news-date">${n.date}</div>
@@ -100,6 +195,36 @@ function init() {
             </div>
         `).join('');
     }
+
+    const projectsGrid = document.getElementById('latest-projects-grid');
+    if (projectsGrid) {
+        const sortedProjects = [...projectsData].sort((a, b) => b.id_num - a.id_num);
+        projectsGrid.innerHTML = sortedProjects.slice(0, 3).map(p => `
+            <div class="card card-project" onclick="openProject('${p.id}')">
+                <img src="${p.image}" class="card-img" alt="${p.title}">
+                <div class="card-content">
+                    <div class="project-tag">${p.date}</div>
+                    <h3>${p.title}</h3>
+                    <p>${p.summary}</p>
+                </div>
+            </div>
+        `).join('');
+    }
+}
+
+function openProject(id) {
+    const p = projectsData.find(item => item.id === id);
+    const container = document.getElementById('modal-container');
+    container.innerHTML = `
+        <div class="modal-project">
+            <button class="close-btn" onclick="closeOverlay()">✕</button>
+            <img src="${p.image}" style="width: 100%; height: 60vh; object-fit: cover; display: block;">
+            <div style="padding: 20px 0;">
+                ${p.lecture}
+            </div>
+        </div>
+    `;
+    showOverlay();
 }
 
 function openProfession(id) {

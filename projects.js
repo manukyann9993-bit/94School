@@ -2,6 +2,7 @@ const projects = [
     {
         id: "greenhouse",
         id_num: 1,
+        date: "Սեպտեմբեր 15, 2024",
         title: "Դպրոցական Ջերմոց",
         summary: "Բուսաբանական կյանքի վերականգնումը ժամանակակից տեխնոլոգիաներով:",
         image: "campus_life.png",
@@ -40,6 +41,7 @@ const projects = [
     {
         id: "rover",
         id_num: 2,
+        date: "Նոյեմբեր 10, 2024",
         title: "Ռոբոտաշինության Խմբակ",
         summary: "Ինքնավար սարքերի ստեղծում և քարտեզագրում:",
         image: "school_hero.png",
@@ -78,6 +80,7 @@ const projects = [
     {
         id: "digital-archive",
         id_num: 3,
+        date: "Դեկտեմբեր 5, 2024",
         title: "Թվային Արխիվ",
         summary: "Դպրոցի փաստաթղթերի և պատմության կենտրոնացված հաբ:",
         image: "school_history.png",
@@ -110,6 +113,7 @@ const projects = [
     {
         id: "ai-assistant",
         id_num: 4,
+        date: "Հունվար 2, 2025",
         title: "Աուրա ԱԻ",
         summary: "Աշակերտների կողմից ստեղծված վիրտուալ օգնական գրադարանի համար:",
         image: "campus_life.png",
@@ -146,9 +150,10 @@ function init() {
     if (projGrid) {
         const sortedProjects = [...projects].sort((a, b) => b.id_num - a.id_num);
         projGrid.innerHTML = sortedProjects.map(p => `
-            <div class="card" onclick="openProject('${p.id}')">
+            <div class="card card-project" onclick="openProject('${p.id}')">
                 <img src="${p.image}" class="card-img" alt="${p.title}">
                 <div class="card-content">
+                    <div class="project-tag">${p.date}</div>
                     <h3>${p.title}</h3>
                     <p>${p.summary}</p>
                 </div>
@@ -163,14 +168,8 @@ function openProject(id) {
     container.innerHTML = `
         <div class="modal-project">
             <button class="close-btn" onclick="closeOverlay()">✕</button>
-            <div class="project-hero">
-                <img src="${p.image}" class="project-hero-img">
-                <div class="project-hero-content">
-                    <h1>${p.title}</h1>
-                    <p>${p.summary}</p>
-                </div>
-            </div>
-            <div class="lecture-body" style="padding: 0 5%;">
+            <img src="${p.image}" style="width: 100%; height: 60vh; object-fit: cover; display: block;">
+            <div style="padding: 20px 0;">
                 ${p.lecture}
             </div>
         </div>

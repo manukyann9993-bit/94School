@@ -334,6 +334,8 @@ nav {
     border: 1px solid var(--border);
     animation: slideUp 0.8s cubic-bezier(0.23, 1, 0.32, 1);
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
     scrollbar-width: none;
     -ms-overflow-style: none;
 }
@@ -344,11 +346,14 @@ nav {
     display: none;
 }
 
-/* Close Button - Integrated into Modal */
+/* Close Button - Sticky & Integrated */
 .close-btn {
-    position: absolute;
+    position: sticky;
     top: 25px;
-    right: 25px;
+    margin-left: auto;
+    margin-right: 25px;
+    margin-bottom: -44px;
+    /* Maintain overlap without pushing content */
     background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(12px);
     color: var(--primary);
@@ -398,15 +403,68 @@ nav {
 
 .news-date {
     display: inline-block;
-    padding: 4px 12px;
-    background: #f1f5f9;
-    color: var(--accent);
+    padding: 6px 14px;
+    background: #eff6ff;
+    color: #2563eb;
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    border-radius: 6px;
+    border-radius: 8px;
     font-weight: 800;
     margin-bottom: 1.5rem;
+}
+
+.project-tag {
+    display: inline-block;
+    padding: 6px 14px;
+    background: #fef2f2;
+    color: #dc2626;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-radius: 8px;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+}
+
+.card-project {
+    border: 1px solid rgba(220, 38, 38, 0.05);
+    background: #fff;
+    transition: all 0.4s ease;
+}
+
+.card-project:hover {
+    border-color: rgba(220, 38, 38, 0.2);
+    box-shadow: 0 30px 60px -15px rgba(220, 38, 38, 0.1);
+}
+
+.card-news {
+    border: 1px solid rgba(37, 99, 235, 0.05);
+    background: #fff;
+}
+
+.card-news:hover {
+    border-color: rgba(37, 99, 235, 0.2);
+    box-shadow: 0 30px 60px -15px rgba(37, 99, 235, 0.1);
+}
+
+.grid-projects {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-top: 60px;
+}
+
+@media (max-width: 1024px) {
+    .grid-projects {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-projects {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Project Styling */

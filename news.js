@@ -52,7 +52,7 @@ function initNews() {
     if (newsGrid) {
         const sortedNews = [...newsData].sort((a, b) => b.id - a.id);
         newsGrid.innerHTML = sortedNews.map(n => `
-            <div class="card" onclick="openNews(${n.id})">
+            <div class="card card-news" onclick="openNews(${n.id})">
                 <img src="${n.image}" class="card-img" alt="${n.title}">
                 <div class="card-content">
                     <div class="news-date">${n.date}</div>
