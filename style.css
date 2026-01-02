@@ -69,11 +69,48 @@ nav {
     color: var(--text-muted);
     font-size: 0.9rem;
     font-weight: 500;
-    transition: color 0.3s;
+    transition: all 0.3s;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-links a.active {
+    color: var(--primary);
+    border-bottom-color: var(--accent);
 }
 
 .nav-links a:hover {
     color: var(--primary);
+}
+
+/* Hamburger Menu Button */
+.menu-btn {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    z-index: 1001;
+    padding: 10px;
+}
+
+.menu-btn span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background: var(--primary);
+    transition: all 0.3s ease;
+}
+
+.menu-btn.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.menu-btn.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-btn.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
 }
 
 /* Hero Section */
@@ -412,16 +449,148 @@ nav {
     background: var(--accent);
 }
 
-/* Responsive */
+/* Responsive Adjustments */
 @media (max-width: 1024px) {
+    nav {
+        padding: 1rem 5%;
+    }
 
     .hero,
     .history-section,
     .lecture-body {
         grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .hero {
+        padding-top: 140px;
+        text-align: center;
     }
 
     .hero-content h1 {
         font-size: 3.5rem;
+    }
+
+    .history-section {
+        padding: 80px 10%;
+    }
+
+    .history-text blockquote {
+        font-size: 2rem;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+    }
+
+    .lecture-header h1 {
+        font-size: 2.8rem !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-btn {
+        display: flex;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        height: 100vh;
+        background: var(--surface);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        transition: 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.05);
+        z-index: 1000;
+        padding: 40px;
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links a {
+        font-size: 1.2rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero {
+        padding-top: 120px;
+    }
+
+    .section {
+        padding: 60px 5%;
+    }
+
+    .section-head {
+        margin-bottom: 40px;
+    }
+
+    .history-section {
+        padding: 60px 5%;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-profession,
+    .modal-project {
+        padding: 30px;
+        height: 95vh;
+        width: 95vw;
+        border-radius: 24px;
+    }
+
+    .lecture-header {
+        padding: 40px 5%;
+    }
+
+    .lecture-header h1 {
+        font-size: 2.2rem !important;
+    }
+
+    .lecture-main {
+        padding: 40px 5%;
+    }
+
+    .lecture-sidebar {
+        padding: 40px 5%;
+        border-left: none;
+        border-top: 1px solid var(--border);
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.1rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .card {
+        padding: 24px;
+    }
+
+    .card h3 {
+        font-size: 1.5rem;
     }
 }

@@ -134,4 +134,28 @@ window.onclick = function (e) {
     if (e.target.id === 'global-overlay') closeOverlay();
 }
 
-document.addEventListener('DOMContentLoaded', init);
+// Mobile Menu Toggle logic
+function setupMobileMenu() {
+    const menuBtn = document.getElementById('menu-btn');
+    const navLinks = document.getElementById('nav-links');
+
+    if (menuBtn && navLinks) {
+        menuBtn.addEventListener('click', () => {
+            menuBtn.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuBtn.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    init();
+    setupMobileMenu();
+});

@@ -9,7 +9,7 @@ const professions = [
     {
         id: "Technologies",
         title: "ՏՀՏ",
-        summary: "Ծրագրավորման և թվային տեխնոլոգիաների խորացված ուսուցում:",
+        summary: "Ծրագրավորման և թվային տեխնոլոգիաների ուսուցում:",
         details: "Այս հոսքը նպատակ ունի զարգացնել ալգորիթմական մտածողությունը և տիրապետել ժամանակակից ծրագրավորման լեզուներին: Սովորողները ձեռք են բերում գործնական հմտություններ տեղեկատվական համակարգերի կառավարման և նորարարական տեխնոլոգիաների կիրառման ոլորտում։"
     },
     {
@@ -83,4 +83,57 @@ window.onclick = function (e) {
     if (e.target.id === 'global-overlay') closeOverlay();
 }
 
-document.addEventListener('DOMContentLoaded', init);
+// Mobile Menu Toggle logic
+function setupMobileMenu() {
+    const menuBtn = document.getElementById('menu-btn');
+    const navLinks = document.getElementById('nav-links');
+
+    if (menuBtn && navLinks) {
+        menuBtn.addEventListener('click', () => {
+            menuBtn.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuBtn.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+    }
+}
+
+// Scroll Spy for Link Highlighting
+function setupScrollSpy() {
+    const sections = document.querySelectorAll('header, section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    const observerOptions = {
+        root: null,
+        rootMargin: '-20% 0px -70% 0px',
+        threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${id}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+    }, observerOptions);
+
+    sections.forEach(section => observer.observe(section));
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    init();
+    setupMobileMenu();
+    setupScrollSpy();
+});
