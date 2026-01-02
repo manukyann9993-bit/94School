@@ -167,9 +167,13 @@ function openProject(id) {
     const container = document.getElementById('modal-container');
     container.innerHTML = `
         <div class="modal-project">
-            <button class="close-btn" onclick="closeOverlay()">✕</button>
-            <img src="${p.image}" style="width: 100%; height: 60vh; object-fit: cover; display: block;">
-            <div style="padding: 20px 0;">
+            <div class="sticky-close-wrapper">
+                <button class="close-btn" onclick="closeOverlay()">✕</button>
+            </div>
+            <div class="modal-image-container">
+                <img src="${p.image}" style="width: 100%; height: 65vh; object-fit: cover; display: block;">
+            </div>
+            <div class="modal-body-content" style="margin-top: -60px; position: relative; background: var(--surface); border-radius: 40px 40px 0 0; padding-top: 40px;">
                 ${p.lecture}
             </div>
         </div>

@@ -346,16 +346,23 @@ nav {
     display: none;
 }
 
-/* Close Button - Sticky & Integrated */
-.close-btn {
+/* Close Button - Premium Sticky Logic */
+.sticky-close-wrapper {
     position: sticky;
-    top: 25px;
-    margin-left: auto;
-    margin-right: 25px;
-    margin-bottom: -44px;
-    /* Maintain overlap without pushing content */
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(12px);
+    top: 0;
+    z-index: 2300;
+    height: 0;
+    width: 100%;
+    overflow: visible;
+    pointer-events: none;
+}
+
+.close-btn {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    pointer-events: auto;
+    background: #fff;
     color: var(--primary);
     border: 1px solid var(--border);
     width: 44px;
@@ -366,15 +373,14 @@ nav {
     border-radius: 50%;
     font-size: 1rem;
     cursor: pointer;
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-    z-index: 2300;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .close-btn:hover {
     background: var(--accent);
     color: #fff;
     transform: rotate(90deg) scale(1.1);
-    border-color: var(--accent);
 }
 
 /* Modal Inner Polish */
@@ -503,8 +509,31 @@ nav {
     color: #fff !important;
 }
 
+/* Modern Lecture Layout */
+.lecture-header {
+    padding: 60px 10% 40px;
+    text-align: center;
+    background: transparent;
+}
+
+.lecture-header h1 {
+    font-size: 3.5rem;
+    color: var(--primary);
+    line-height: 1.1;
+    margin-top: 1rem;
+}
+
+.modal-image-container {
+    padding: 20px;
+    background: var(--surface);
+}
+
+.modal-image-container img {
+    border-radius: 30px;
+}
+
 .lecture-body {
-    padding: 100px 8%;
+    padding: 20px 8% 100px;
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 80px;
@@ -519,9 +548,9 @@ nav {
 
 /* News Styling */
 .news-expanded-header {
-    padding: 140px 10% 80px;
+    padding: 80px 10% 40px;
     text-align: center;
-    background: #fdfdfc;
+    background: transparent;
 }
 
 .news-expanded-header .news-date {
