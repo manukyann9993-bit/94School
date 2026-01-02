@@ -1,6 +1,7 @@
 const projects = [
     {
         id: "greenhouse",
+        id_num: 1,
         title: "Դպրոցական Ջերմոց",
         summary: "Բուսաբանական կյանքի վերականգնումը ժամանակակից տեխնոլոգիաներով:",
         image: "campus_life.png",
@@ -38,6 +39,7 @@ const projects = [
     },
     {
         id: "rover",
+        id_num: 2,
         title: "Ռոբոտաշինության Խմբակ",
         summary: "Ինքնավար սարքերի ստեղծում և քարտեզագրում:",
         image: "school_hero.png",
@@ -75,6 +77,7 @@ const projects = [
     },
     {
         id: "digital-archive",
+        id_num: 3,
         title: "Թվային Արխիվ",
         summary: "Դպրոցի փաստաթղթերի և պատմության կենտրոնացված հաբ:",
         image: "school_history.png",
@@ -106,6 +109,7 @@ const projects = [
     },
     {
         id: "ai-assistant",
+        id_num: 4,
         title: "Աուրա ԱԻ",
         summary: "Աշակերտների կողմից ստեղծված վիրտուալ օգնական գրադարանի համար:",
         image: "campus_life.png",
@@ -140,7 +144,8 @@ const projects = [
 function init() {
     const projGrid = document.getElementById('projects-grid');
     if (projGrid) {
-        projGrid.innerHTML = projects.map(p => `
+        const sortedProjects = [...projects].sort((a, b) => b.id_num - a.id_num);
+        projGrid.innerHTML = sortedProjects.map(p => `
             <div class="card" onclick="openProject('${p.id}')">
                 <img src="${p.image}" class="card-img" alt="${p.title}">
                 <div class="card-content">
@@ -157,7 +162,7 @@ function openProject(id) {
     const container = document.getElementById('modal-container');
     container.innerHTML = `
         <div class="modal-project">
-            <button class="close-btn" onclick="closeOverlay()" style="position: fixed; top: 40px; right: 40px; background: #fff; z-index: 10;">✕</button>
+            <button class="close-btn" onclick="closeOverlay()">✕</button>
             <div class="project-hero">
                 <img src="${p.image}" class="project-hero-img">
                 <div class="project-hero-content">

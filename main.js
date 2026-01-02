@@ -120,7 +120,7 @@ function openNews(id) {
     const container = document.getElementById('modal-container');
     container.innerHTML = `
         <div class="modal-news">
-            <button class="close-btn" onclick="closeOverlay()" style="position: fixed; top: 40px; right: 40px; background: #fff; z-index: 10;">✕</button>
+            <button class="close-btn" onclick="closeOverlay()">✕</button>
             <div class="news-expanded-header">
                 <span class="news-date">${n.date}</span>
                 <h1>${n.title}</h1>
