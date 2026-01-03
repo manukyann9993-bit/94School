@@ -5,34 +5,30 @@ const projects = [
         date: "Սեպտեմբեր 15, 2024",
         title: "Դպրոցական Ջերմոց",
         summary: "Բուսաբանական կյանքի վերականգնումը ժամանակակից տեխնոլոգիաներով:",
-        image: "campus_life.png",
+        image: "images/campus_life.png",
         lecture: `
-            <div class="lecture-header">
-                <span class="section-label">Կենսատեխնոլոգիա</span>
-                <h1>Դպրոցական Ջերմոց</h1>
-            </div>
-            <div class="lecture-body">
-                <div class="lecture-main">
+            <div class="project-body">
+                <div class="project-main-content">
                     <h2>Տեսլական</h2>
                     <p>Այս նախագիծը ծնվել է մեր դպրոցի տարածքում հազվագյուտ բուսատեսակները պահպանելու ցանկությունից:</p>
-                    <img src="campus_life.png" class="lecture-images">
+                    <img src="images/campus_life.png" style="width:100%; border-radius:12px; margin: 30px 0;">
                     <h2>Իրականացում</h2>
                     <p>Մենք նախագծել ենք խոնավեցման հատուկ համակարգ, որը նմանակում է բնական անձրևները՝ միաժամանակ պահպանելով վերահսկվող կլիմա:</p>
                     <h2>Արդյունք</h2>
                     <p>Պատմության պահպանումը ժամանակակից ինժեներիայի միջոցով այս ուսումնական տարվա հիմնական թեման է:</p>
                 </div>
-                <div class="lecture-sidebar">
-                    <div class="sidebar-widget">
-                        <span class="sidebar-label">Բաժին</span>
-                        <span class="sidebar-value">Բնագիտություն</span>
+                <div class="project-sidebar">
+                    <div class="project-stat-item">
+                        <span class="project-stat-label">Բաժին</span>
+                        <span class="project-stat-value">Բնագիտություն</span>
                     </div>
-                    <div class="sidebar-widget">
-                        <span class="sidebar-label">Տարեթիվ</span>
-                        <span class="sidebar-value">2025</span>
+                    <div class="project-stat-item">
+                        <span class="project-stat-label">Տարեթիվ</span>
+                        <span class="project-stat-value">2025</span>
                     </div>
-                    <div class="sidebar-widget">
-                        <span class="sidebar-label">Ղեկավար</span>
-                        <span class="sidebar-value">Աշակերտական Խորհուրդ</span>
+                    <div class="project-stat-item">
+                        <span class="project-stat-label">Ղեկավար</span>
+                        <span class="project-stat-value">Աշ. Խորհուրդ</span>
                     </div>
                 </div>
             </div>
@@ -44,34 +40,30 @@ const projects = [
         date: "Նոյեմբեր 10, 2024",
         title: "Ռոբոտաշինության Խմբակ",
         summary: "Ինքնավար սարքերի ստեղծում և քարտեզագրում:",
-        image: "school_hero.png",
+        image: "images/school_hero.png",
         lecture: `
-            <div class="lecture-header">
-                <span class="section-label">Ռոբոտաշինություն</span>
-                <h1>Կամպուս Վոյաջեր</h1>
-            </div>
-            <div class="lecture-body">
-                <div class="lecture-main">
+            <div class="project-body">
+                <div class="project-main-content">
                     <h2>Նպատակ</h2>
                     <p>Ստեղծել ինքնավար ռոբոտ, որն ընդունակ է տեղաշարժվել դպրոցի բակում՝ հաղթահարելով տարբեր արգելքներ:</p>
-                    <img src="school_hero.png" class="lecture-images">
+                    <img src="images/school_hero.png" style="width:100%; border-radius:12px; margin: 30px 0;">
                     <h2>Տեխնոլոգիաներ</h2>
                     <p>Վոյաջերը օգտագործում է ուլտրաձայնային սենսորներ արգելքները հայտնաբերելու համար և հատուկ կախոցների համակարգ:</p>
                     <h2>Ազդեցություն</h2>
                     <p>Հավաքագրված տվյալները օգնում են մեր թիմին ավելի արդյունավետ կառավարել դպրոցի տարածքը:</p>
                 </div>
-                <div class="lecture-sidebar">
-                    <div class="sidebar-widget">
-                        <span class="sidebar-label">Բաժին</span>
-                        <span class="sidebar-value">Ինժեներիա</span>
+                <div class="project-sidebar">
+                    <div class="project-stat-item">
+                        <span class="project-stat-label">Բաժին</span>
+                        <span class="project-stat-value">Ինժեներիա</span>
                     </div>
-                    <div class="sidebar-widget">
-                        <span class="sidebar-label">Տարեթիվ</span>
-                        <span class="sidebar-value">2025</span>
+                    <div class="project-stat-item">
+                        <span class="project-stat-label">Տարեթիվ</span>
+                        <span class="project-stat-value">2025</span>
                     </div>
-                    <div class="sidebar-widget">
-                        <span class="sidebar-label">Բարդություն</span>
-                        <span class="sidebar-value">Բարձր</span>
+                    <div class="project-stat-item">
+                        <span class="project-stat-label">Բարդություն</span>
+                        <span class="project-stat-value">Բարձր</span>
                     </div>
                 </div>
             </div>
@@ -83,28 +75,24 @@ const projects = [
         date: "Դեկտեմբեր 5, 2024",
         title: "Թվային Արխիվ",
         summary: "Դպրոցի փաստաթղթերի և պատմության կենտրոնացված հաբ:",
-        image: "school_history.png",
+        image: "images/school_history.png",
         lecture: `
-            <div class="lecture-header">
-                <span class="section-label">Պատմություն</span>
-                <h1>Թվային Արխիվ</h1>
-            </div>
-            <div class="lecture-body">
-                <div class="lecture-main">
+            <div class="project-body">
+                <div class="project-main-content">
                     <h2>Նախագծի Էությունը</h2>
                     <p>Մենք թվայնացնում ենք դպրոցի տասնամյակների պատմությունը՝ սկսած հիմնադրման օրվանից մինչև այսօր:</p>
-                    <img src="school_history.png" class="lecture-images">
+                    <img src="images/school_history.png" style="width:100%; border-radius:12px; margin: 30px 0;">
                     <h2>Նպատակ</h2>
                     <p>Ստեղծել հասանելի հարթակ, որտեղ յուրաքանչյուր աշակերտ և շրջանավարտ կկարողանա գտնել իրեն հետաքրքրող տեղեկատվությունը:</p>
                 </div>
-                <div class="lecture-sidebar">
-                    <div class="sidebar-widget">
-                        <span class="sidebar-label">Բաժին</span>
-                        <span class="sidebar-value">Հասարակագիտություն</span>
+                <div class="project-sidebar">
+                    <div class="project-stat-item">
+                        <span class="project-stat-label">Բաժին</span>
+                        <span class="project-stat-value">Հասարակագիտություն</span>
                     </div>
-                    <div class="sidebar-widget">
-                        <span class="sidebar-label">Տարեթիվ</span>
-                        <span class="sidebar-value">2024</span>
+                    <div class="project-stat-item">
+                        <span class="project-stat-label">Տարեթիվ</span>
+                        <span class="project-stat-value">2024</span>
                     </div>
                 </div>
             </div>
@@ -116,28 +104,24 @@ const projects = [
         date: "Հունվար 2, 2025",
         title: "Աուրա ԱԻ",
         summary: "Աշակերտների կողմից ստեղծված վիրտուալ օգնական գրադարանի համար:",
-        image: "campus_life.png",
+        image: "images/campus_life.png",
         lecture: `
-            <div class="lecture-header">
-                <span class="section-label">Տեխնոլոգիա</span>
-                <h1>Աուրա ԱԻ</h1>
-            </div>
-            <div class="lecture-body">
-                <div class="lecture-main">
+            <div class="project-body">
+                <div class="project-main-content">
                     <h2>Ինովացիա</h2>
                     <p>Աուրան արհեստական բանականության վրա հիմնված օգնական է, որն օգնում է աշակերտներին գտնել անհրաժեշտ գրականությունը:</p>
-                    <img src="campus_life.png" class="lecture-images">
+                    <img src="images/campus_life.png" style="width:100%; border-radius:12px; margin: 30px 0;">
                     <h2>Ֆունկցիոնալություն</h2>
                     <p>Այն կարող է պատասխանել հարցերին, առաջարկել գրքեր և նույնիսկ օգնել ուսումնական պլանի կազմման հարցում:</p>
                 </div>
-                <div class="lecture-sidebar">
-                    <div class="sidebar-widget">
-                        <span class="sidebar-label">Բաժին</span>
-                        <span class="sidebar-value">ՏՏ / ԱԻ</span>
+                <div class="project-sidebar">
+                    <div class="project-stat-item">
+                        <span class="project-stat-label">Բաժին</span>
+                        <span class="project-stat-value">ՏՏ / ԱԻ</span>
                     </div>
-                    <div class="sidebar-widget">
-                        <span class="sidebar-label">Կարգավիճակ</span>
-                        <span class="sidebar-value">Մշակման փուլում</span>
+                    <div class="project-stat-item">
+                        <span class="project-stat-label">Կարգավիճակ</span>
+                        <span class="project-stat-value">Մշակման փուլում</span>
                     </div>
                 </div>
             </div>
@@ -166,16 +150,18 @@ function openProject(id) {
     const p = projects.find(item => item.id === id);
     const container = document.getElementById('modal-container');
     container.innerHTML = `
-        <div class="modal-project">
-            <div class="sticky-close-wrapper">
-                <button class="close-btn" onclick="closeOverlay()">✕</button>
+        <div class="modal-project-new">
+            <div class="project-hero-section">
+                <img src="${p.image}" class="project-hero-bg">
+                <div class="project-hero-overlay"></div>
+                <div class="close-btn-floating" onclick="closeOverlay()">✕</div>
+                <div class="project-hero-content">
+                    <span class="project-tag-pill">${p.date}</span>
+                    <h1>${p.title}</h1>
+                    <div class="project-date">Status: Active</div>
+                </div>
             </div>
-            <div class="modal-image-container">
-                <img src="${p.image}" style="width: 100%; height: 65vh; object-fit: cover; display: block;">
-            </div>
-            <div class="modal-body-content" style="margin-top: -60px; position: relative; background: var(--surface); border-radius: 40px 40px 0 0; padding-top: 40px;">
-                ${p.lecture}
-            </div>
+            ${p.lecture}
         </div>
     `;
     showOverlay();

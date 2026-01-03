@@ -3,12 +3,12 @@ const newsData = [
         id: 1,
         date: "Հունվար 3, 2026",
         title: "Նոր Տեխնոլոգիական Լաբորատորիայի Բացում",
-        image: "school_hero.png",
+        image: "images/school_hero.png",
         summary: "Մեր դպրոցում բացվեց նորագույն սարքավորումներով հագեցած լաբորատորիա՝ ռոբոտաշինության և ԱԻ հետազոտությունների համար:",
         content: `
             <p>Լաբորատորիան հնարավորություն կտա աշակերտներին գործնականում կիրառել իրենց գիտելիքները և ստեղծել նորարարական նախագծեր։ Այստեղ տեղադրված են վերջին սերնդի 3D տպիչներ, VR սարքավորումներ և հզոր համակարգիչներ։</p>
             <p>Բացման արարողությանը ներկա էին կրթության նախարարության ներկայացուցիչները և առաջատար ՏՏ ընկերությունների ղեկավարներ, ովքեր խոստացան աջակցել մեր աշակերտներին իրենց հետագա հետազոտություններում։</p>
-            <img src="school_hero.png" style="width: 100%; border-radius: 20px; margin: 40px 0;">
+            <img src="images/school_hero.png" style="width: 100%; border-radius: 20px; margin: 40px 0;">
             <p>Սա նոր փուլ է մեր դպրոցի պատմության մեջ, որը կօգնի աշակերտներին դառնալ ավելի մրցունակ ժամանակակից աշխարհում:</p>
         `
     },
@@ -16,7 +16,7 @@ const newsData = [
         id: 2,
         date: "Դեկտեմբեր 25, 2025",
         title: "Շախմատի Ներդպրոցական Մրցաշար",
-        image: "campus_life.png",
+        image: "images/campus_life.png",
         summary: "Ավարտվեց ամենամյա շախմատային մրցաշարը, որին մասնակցեցին ավելի քան 50 աշակերտներ բոլոր դասարաններից:",
         content: `
             <p>Լարված պայքարում հաղթող ճանաչվեց 11-րդ դասարանի աշակերտ Արմեն Սարգսյանը։ Մրցաշարը նպատակ ուներ խրախուսել տրամաբանական մտածողությունը և ռազմավարական հմտությունները սովորողների շրջանում։</p>
@@ -27,7 +27,7 @@ const newsData = [
         id: 3,
         date: "Դեկտեմբեր 20, 2025",
         title: "Այցելություն ԳԱԱ Ակադեմիա",
-        image: "school_history.png",
+        image: "images/school_history.png",
         summary: "Բնագիտական հոսքի աշակերտները հյուրընկալվեցին ԳԱԱ-ում, որտեղ ծանոթացան հայ գիտնականների վերջին ձեռքբերումներին:",
         content: `
             <p>Էքսկուրսիան շատ տպավորիչ էր և ոգեշնչող մեր աշակերտների համար։ Նրանք հնարավորություն ունեցան տեսնել իրական լաբորատոր պայմաններում կատարվող հետազոտությունները և լսել առաջատար գիտնականների դասախոսությունները։</p>
@@ -38,7 +38,7 @@ const newsData = [
         id: 4,
         date: "Հունվար 1, 2026",
         title: "Այցելություն ԵՊՀ",
-        image: "EPH.jpeg",
+        image: "images/EPH.jpeg",
         summary: "Բնագիտական հոսքի աշակերտները հյուրընկալվեցին ԵՊՀ-ում, որտեղ ծանոթացան հայ գիտնականների վերջին ձեռքբերումներին:",
         content: `
             <p>Էքսկուրսիան շատ տպավորիչ էր և ոգեշնչող մեր աշակերտների համար։ Նրանք հնարավորություն ունեցան տեսնել իրական լաբորատոր պայմաններում կատարվող հետազոտությունները և լսել առաջատար գիտնականների դասախոսությունները։</p>
@@ -68,15 +68,17 @@ function openNews(id) {
     const n = newsData.find(item => item.id === id);
     const container = document.getElementById('modal-container');
     container.innerHTML = `
-        <div class="modal-news">
-            <div class="sticky-close-wrapper">
-                <button class="close-btn" onclick="closeOverlay()">✕</button>
+        <div class="modal-news-new">
+            <div class="close-btn-floating" onclick="closeOverlay()">✕</div>
+            <div class="news-header">
+                <span class="news-meta-top">${n.date} &bull; School News</span>
+                <h1 class="news-title-large">${n.title}</h1>
             </div>
-            <div class="news-expanded-header">
-                <span class="news-date">${n.date}</span>
-                <h1>${n.title}</h1>
+            <div class="news-featured-image-container">
+                <img src="${n.image}" class="news-featured-image">
+                <div class="news-caption">${n.summary}</div>
             </div>
-            <div class="news-expanded-body">
+            <div class="news-body-text">
                 ${n.content}
             </div>
         </div>
