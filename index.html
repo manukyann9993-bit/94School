@@ -1,106 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hy">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Գուրգեն Մարգարյանի Անվան 94 Ավագ Դպրոց</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Armenian:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Outfit:wght@100..900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <nav>
-        <div class="logo">Գուրգեն Մարգարյանի Անվան 94 Ավագ Դպրոց</div>
-        <div class="menu-btn" id="menu-btn">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <div class="nav-links" id="nav-links">
-            <a href="#home">Գլխավոր Էջ</a>
-            <a href="#news-section">Լրահոս</a>
-            <a href="#history">Դպրոցի Պատմություն</a>
-            <a href="#professions">Հոսքեր</a>
-            <a href="projects.html">Նախագծեր</a>
+    <!-- Dynamic Aura Background -->
+    <div class="aura-container">
+        <div class="aura-blob aura-1"></div>
+        <div class="aura-blob aura-2"></div>
+    </div>
+
+    <!-- Minimalist Academy Nav -->
+    <nav class="academy-nav">
+        <div class="nav-brand-academy">94 Ավագ Դպրոց</div>
+        <div class="academy-links">
+            <a href="streams.html" class="academy-link">Հոսքեր</a>
+            <a href="projects.html" class="academy-link">Նախագծեր</a>
+            <a href="news.html" class="academy-link">Նորություններ</a>
+            <a href="history.html" class="academy-link">Պատմություն</a>
         </div>
     </nav>
 
-    <header id="home" class="hero">
-        <div class="hero-content">
-            <span class="section-label">Հիմնադրվել է 1968 թ.</span>
-            <h1>Կրթություն <br>Ապագայի Համար:</h1>
-            <p>Մեր պատմական արմատներից մինչև ժամանակակից լաբորատորիաներ, մենք տրամադրում ենք նորարար միջավայր
-                առաջնորդների և ստեղծագործողների հաջորդ սերնդի համար:</p>
-            <a href="projects.html" class="btn-primary"
-                style="position: relative; top: 0; right: 0; font-size: 0.9rem; text-decoration: none; display: inline-block;">ՈՒՍՈՒՄՆԱՍԻՐԵԼ
-                ՆԱԽԱԳԾԵՐԸ</a>
+    <!-- Unified Panoramic Hero with Glass Lens -->
+    <header class="hero-glass-max">
+        <div class="hero-visual-panoramic">
+            <img src="images/94dproc.jpg" alt="Գ. Մարգարյանի անվան 94 Ավագ Դպրոց">
         </div>
-        <div class="hero-img-container">
-            <img src="images/94dproc.jpg" alt="Դպրոցի Շենքը" class="hero-image">
+        <div class="glass-lens-hero">
+            <div class="hero-content-unified">
+                <h1 class="serif">Բարի Գալուստ <br><span style="color: var(--accent-sapphire);">94 Ավագ Դպրոց</span>
+                </h1>
+                <p>Գևորգ Մարգարյանի անվան թիվ 94 ավագ դպրոց: Հիմնադրվել է 1994 թվականին: Մենք կերտում ենք ապագայի տեսիլք
+                    ունեցող առաջնորդներին:</p>
+
+                <div style="margin-top: 40px; display: flex; gap: 20px; justify-content: center;">
+                    <a href="streams.html"
+                        style="padding: 15px 40px; background: var(--accent-sapphire); color: white; text-decoration: none; border-radius: 30px; font-weight: bold; transition: 0.3s;">Բացահայտել
+                        Հոսքերը</a>
+                </div>
+            </div>
         </div>
     </header>
 
-    <section id="news-section" class="section" style="background: var(--bg); padding-top: 100px;">
-        <div class="section-head">
-            <span class="section-label">Դպրոցական Լրահոս</span>
-            <h2 class="section-title">ՎԵՐՋԻՆ ՆՈՐՈՒԹՅՈՒՆՆԵՐ</h2>
-            <p style="color: var(--text-muted); margin-top: 1rem;">Տեղեկացեք դպրոցի վերջին իրադարձությունների մասին:</p>
-        </div>
-        <div id="latest-news-grid" class="grid">
-            <!-- Latest 3 news injected by main.js -->
-        </div>
-        <div style="text-align: center; margin-top: 4rem;">
-            <a href="news.html" class="btn-primary">ԴԻՏԵԼ ԲՈԼՈՐ ՆՈՐՈՒԹՅՈՒՆՆԵՐԸ</a>
-        </div>
-    </section>
-
-    <section id="history" class="history-section">
-        <div class="history-img-container">
-            <img src="images/school_history.png" alt="Դպրոցի Պատմությունը" style="width: 100%; display: block;">
-        </div>
-        <div class="history-text">
-            <span class="section-label">Մեր Ժառանգությունը</span>
-            <blockquote>"Ակադեմիական Առաջնորդության Տասնամյակներ:"</blockquote>
-            <p>Գուրգեն Մարգարյանի անվան թիվ 94 ավագ դպրոցը տասնամյակներ շարունակ հանդիսանում է կրթական որակի փարոս
-                Աջափնյակ համայնքում: Մենք համատեղում ենք ավանդական արժեքները ժամանակակից տեխնոլոգիաների հետ:</p>
-            <p>Մեր կրթահամալիրը մշտապես զարգանում է՝ աշակերտներին հնարավորություն տալով ուսումնասիրել թե՛ դասական
-                տեսությունները, թե՛ նորագույն գիտական ուղղությունները:</p>
-        </div>
-    </section>
-
-    <section id="professions" class="section">
-        <div class="section-head">
-            <span class="section-label">Կրթական Ուղիներ</span>
-            <h2 class="section-title">Հոսքեր</h2>
-        </div>
-        <div id="professions-grid" class="grid">
-            <!-- Professions Injected by JS -->
-        </div>
-    </section>
-
-    <section id="projects-hub" class="section" style="background: var(--surface);">
-        <div class="section-head">
-            <span class="section-label">Աշակերտական Աշխատանքներ</span>
-            <h2 class="section-title">ՎԵՐՋԻՆ ՆԱԽԱԳԾԵՐԸ</h2>
-            <p style="color: var(--text-muted); margin-top: 1rem;">Բացահայտեք մեր աշակերտների թարմ
-                ստեղծագործությունները:</p>
-        </div>
-        <div id="latest-projects-grid" class="grid-projects">
-            <!-- Latest 3 projects injected by main.js -->
-        </div>
-        <div style="text-align: center; margin-top: 4rem;">
-            <a href="projects.html" class="btn-primary">ՏԵՍՆԵԼ ԲՕԼՈՐ ՆԱԽԱԳԾԵՐԸ</a>
-        </div>
-    </section>
-
-    <!-- Global Interaction Overlay -->
-    <div id="global-overlay" class="overlay">
-        <div id="modal-container" style="width: 100%; display: flex; justify-content: center; align-items: flex-start;">
-            <!-- Content Injected Here -->
-        </div>
-    </div>
-
-    <script src="main.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>

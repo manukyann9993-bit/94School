@@ -1,0 +1,34 @@
+GUIDE: HOW TO EDIT PROJECTS (Նախագծեր)
+
+LOCATION
+The projects are located in the "script.js" file. Look for the variable named "projectsData".
+
+FORMAT
+Each project is inside curly braces { ... }. The format is:
+
+    {
+        id: NUMBER,             // Unique ID (1, 2, 3...). High numbers show first.
+        title: "Title Here",    // The title on the card
+        author: "Author Here",  // Class or Student Name
+        year: "YEAR",           // Year
+        summary: "Short Text",  // Short description on the card
+        content: `              // The details inside the modal (HTML allowed)
+            <h1>Big Title</h1>
+            <p>Your long text goes here...</p>
+        `
+    },
+
+HOW TO ADD A NEW PROJECT
+1. Open script.js
+2. Find "projectsData"
+3. Copy one of the blocks starting from { and ending with },
+4. Paste it at the BEGINNING of the list (inside the brackets [ ... ])
+5. Change the ID to be one number higher than the previous highest ID.
+6. Change the title, author, and content text.
+
+HOW TO DELETE
+Simply delete the block starting from { down to }, including the comma.
+
+IMPORTANT
+- Do not remove the backticks (`) around the content.
+- Be careful with commas between items.

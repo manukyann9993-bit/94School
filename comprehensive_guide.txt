@@ -1,0 +1,40 @@
+COMPREHENSIVE WEBSITE GUIDE
+
+HOW TO EDIT CONTENT
+
+1. NEWS (Նորություններ)
+   - Open "script.js".
+   - Find "newsData".
+   - Add new items CAREFULLY inside the list.
+   - "id": Must be unique. Higher numbers appear first (Newest).
+   - "content": Short text for the card.
+   - "fullContent": Long text for the popup.
+
+2. PROJECTS (Նախագծեր)
+   - Open "script.js".
+   - Find "projectsData".
+   - Follow the same rules as News.
+   - You can use HTML tags (<h1>, <p>, <b>) inside the "content" field for projects to make them look like articles.
+
+3. STREAMS (Հոսքեր)
+   - Open "script.js".
+   - Find "streamsData".
+   - Edit titles, summaries, or icons here.
+
+4. PAGE TEXTS (Main Pages)
+   - To change the text on the main pages, you must edit the HTML files directly:
+     - index.html (Home)
+     - about.html (About Us)
+     - history.html (History)
+   - Look for the text in white or grey and change it. Do not touch the <tags>.
+
+HOW TO ADD NEW PAGES
+1. Copy an existing file (e.g., about.html) and rename it (e.g., newpage.html).
+2. Open "style.css" if you need specific styles.
+3. Open all HTML files and add the link to the Navigation Bar section:
+   <a href="newpage.html" class="academy-link">New Page</a>
+
+TIPS
+- Always save your files after editing.
+- If the site breaks, check if you missed a comma (,) or a quote (") in script.js.
+- Images should be put in the "images" folder.

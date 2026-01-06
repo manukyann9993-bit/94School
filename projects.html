@@ -1,48 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hy">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Academy | Student Projects</title>
+    <title>Նախագծեր | 94 Ավագ Դպրոց</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Armenian:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Outfit:wght@100..900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <nav>
-        <div class="logo">Գուրգեն Մարգարյանի Անվան 94 Ավագ Դպրոց</div>
-        <div class="menu-btn" id="menu-btn">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <div class="nav-links" id="nav-links">
-            <a href="index.html">Գլխավոր Էջ</a>
-            <a href="news.html">Լրահոս</a>
-            <a href="index.html#history">Դպրոցի Պատմություն</a>
-            <a href="projects.html" class="active">Նախագծեր</a>
+    <div class="aura-container">
+        <div class="aura-blob aura-1"></div>
+        <div class="aura-blob aura-2"></div>
+    </div>
+
+    <nav class="academy-nav">
+        <div class="nav-brand-academy">94 Ավագ Դպրոց</div>
+        <div class="academy-links">
+            <a href="streams.html" class="academy-link">Հոսքեր</a>
+            <a href="projects.html" class="academy-link active">Նախագծեր</a>
+            <a href="news.html" class="academy-link">Նորություններ</a>
+            <a href="history.html" class="academy-link">Պատմություն</a>
         </div>
     </nav>
 
-    <section class="section" style="padding-top: 180px;">
-        <div class="section-head">
-            <h2 class="section-title">ՆԱԽԱԳԾԵՐ</h2>
-            <p style="color: var(--text-muted); margin-top: 1rem;">Գուրգեն Մարգարյանի Անվան 94 Ավագ Դպրոցի Նախագծերը։
-            </p>
+    <header class="hero-glass-max" style="height: 80vh;">
+        <div class="hero-visual-panoramic">
+            <img src="images/94dproc.jpg" alt="Դպրոցի տեսարան">
         </div>
-        <div id="projects-grid" class="grid">
-            <!-- Projects Injected by projects.js -->
+        <div class="glass-lens-hero">
+            <div class="hero-content-unified">
+                <h1 class="serif">Մեր <span style="color: var(--accent-sapphire);">Նախագծերը</span></h1>
+                <p>Սովորողների կատարած հետազոտական և ստեղծագործական աշխատանքները:</p>
+            </div>
         </div>
-    </section>
+    </header>
 
-    <!-- Global Interaction Overlay -->
-    <div id="global-overlay" class="overlay">
-        <div id="modal-container" style="width: 100%; display: flex; justify-content: center; align-items: flex-start;">
-            <!-- Content Injected Here -->
+    <main class="glass-section">
+        <div id="projects-grid" class="glass-grid-symmetrical">
+            <!-- Populated by JS -->
+        </div>
+    </main>
+
+    <!-- Wikipedia Modal -->
+    <div id="wiki-modal" class="portal-overlay">
+        <div id="wiki-body" class="wiki-paper">
+            <!-- Populated by JS -->
         </div>
     </div>
 
-    <script src="projects.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // We will add populateProjects to script.js
+            if (typeof populateProjects === 'function') populateProjects();
+        });
+    </script>
 </body>
 
 </html>
