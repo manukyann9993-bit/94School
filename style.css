@@ -445,6 +445,16 @@ body {
     }
 }
 
+/* MOBILE MENU BUTTON */
+.mobile-menu-btn {
+    display: none;
+    background: transparent;
+    border: none;
+    color: var(--text-pure);
+    cursor: pointer;
+    z-index: 1001;
+}
+
 @media (max-width: 768px) {
     .glass-grid-symmetrical {
         grid-template-columns: 1fr;
@@ -454,13 +464,61 @@ body {
         padding: 0 20px;
     }
 
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    /* Transform academy-links into a compact dropdown/overlay */
     .academy-links {
-        display: none;
+        display: flex;
+        /* Revert display:none */
+        position: fixed;
+        /* Position below the navbar */
+        top: 80px;
+        left: 5%;
+        right: 5%;
+        width: 90%;
+        height: auto;
+        border-radius: 20px;
+        background: rgba(18, 18, 20, 0.98);
+        /* Darker, less transparent */
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--silk-border);
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 30px 0;
+        gap: 20px;
+        transform: translateY(-20px);
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.3s ease;
+        z-index: 900;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    }
+
+    .academy-links.active {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    .academy-link {
+        font-size: 1.1rem;
+        /* Much smaller, normal size */
+        padding: 10px 0;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .academy-link:last-child {
+        border-bottom: none;
     }
 
     .hero-content-unified h1 {
-        font-size: 3rem;
-        /* Slightly larger for impact */
+        font-size: 2.5rem;
+        /* Back to a reasonable size */
     }
 
     .glass-lens-hero {

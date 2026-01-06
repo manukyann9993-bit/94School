@@ -317,6 +317,20 @@ function closeNews() {
     document.body.style.overflow = 'auto';
 }
 
+// Mobile Menu Toggle
+function toggleMobileMenu() {
+    const links = document.getElementById('academy-links');
+    links.classList.toggle('active');
+
+    // Toggle icon state if desired, or simpler just toggle menu
+    // Prevent body scroll when menu is open? 
+    if (links.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = 'auto';
+    }
+}
+
 // Global click to close modals
 window.onclick = (e) => {
     if (e.target.id === 'portal-modal') closePortal();
