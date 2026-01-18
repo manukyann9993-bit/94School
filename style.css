@@ -1030,141 +1030,252 @@ body {
     font-size: 1rem;
     color: var(--text-muted);
 }
-/* STREAM CAROUSEL STYLES */
+
+/* STREAM CAROUSEL STYLES (Enhanced V2) */
 .streams-carousel-container {
     position: relative;
     width: 100%;
-    max-width: 1400px;
+    max-width: 1600px;
+    /* Wider container */
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 0 60px;
+    /* More breathing room */
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 30px;
 }
 
 .carousel-viewport {
     width: 100%;
     overflow: hidden;
-    padding: 40px 0; /* Space for shadows/hover effects */
-    margin: -40px 0; /* Compensate for padding */
+    padding: 60px 0;
+    /* Space for larger shadows/hover effects */
+    margin: -60px 0;
+    perspective: 1000px;
+    /* 3D effect foundation */
 }
 
 .carousel-track {
     display: flex;
-    gap: 30px;
-    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    gap: 40px;
+    /* Increased gap */
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: transform;
 }
 
 .carousel-slide {
-    flex: 0 0 calc(33.333% - 20px); /* 3 cards visible by default */
-    min-width: 300px;
-    opacity: 0.5;
-    transform: scale(0.9);
-    transition: all 0.5s ease;
-    filter: blur(2px);
+    flex: 0 0 calc(33.333% - 27px);
+    /* 3 cards visible */
+    min-width: 350px;
+    transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transform-style: preserve-3d;
+
+    /* Inactive State */
+    opacity: 0.4;
+    transform: scale(0.85) translateY(20px);
+    filter: blur(2px) grayscale(30%);
 }
 
 .carousel-slide.active-slide {
+    /* Active State */
     opacity: 1;
-    transform: scale(1);
-    filter: blur(0);
+    transform: scale(1) translateY(0);
+    filter: blur(0) grayscale(0%);
+    z-index: 10;
 }
 
+/* Enhanced Navigation Buttons */
 .carousel-btn {
     background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--silk-border);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     color: var(--text-pure);
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: 0.3s;
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
     flex-shrink: 0;
-    z-index: 10;
+    z-index: 20;
+    backdrop-filter: blur(10px);
 }
 
 .carousel-btn:hover {
     background: var(--accent-sapphire);
-    box-shadow: 0 0 20px var(--accent-sapphire);
-    transform: scale(1.1);
+    border-color: var(--accent-sapphire);
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.6);
+    /* Glow effect */
+    transform: scale(1.15);
 }
 
 .carousel-btn svg {
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
+    stroke-width: 2.5;
 }
 
-/* Make stream cards adaptable for carousel */
+/* Premium Glass Card Design */
 .glass-card-carousel {
     display: flex;
     flex-direction: column;
-    height: 500px;
-    background: var(--bg-glass);
-    border: 1px solid var(--silk-border);
-    backdrop-filter: blur(20px);
-    border-radius: 20px;
+    height: 600px;
+    /* Taller cards */
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    /* More subtle border */
+    backdrop-filter: blur(30px);
+    border-radius: 30px;
+    /* Rounded corners */
     overflow: hidden;
     position: relative;
-    transition: 0.4s ease;
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-.glass-card-carousel:hover {
+.carousel-slide.active-slide .glass-card-carousel {
+    border-color: rgba(59, 130, 246, 0.4);
+    box-shadow: 0 20px 60px -10px rgba(0, 0, 0, 0.6);
+}
+
+.carousel-slide.active-slide:hover .glass-card-carousel {
+    transform: translateY(-10px);
     border-color: var(--accent-sapphire);
-    box-shadow: 0 10px 40px -10px rgba(59, 130, 246, 0.3);
+    box-shadow: 0 30px 70px -10px rgba(59, 130, 246, 0.25);
 }
 
 .glass-card-carousel .card-bg-subtle {
-    height: 50%;
+    height: 55%;
+    /* More image space */
     overflow: hidden;
     position: relative;
+}
+
+.glass-card-carousel .card-bg-subtle::after {
+    /* Gradient overlay for text readability */
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, #08080A 5%, transparent 80%);
 }
 
 .glass-card-carousel .card-bg-subtle img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: 0.5s ease;
+    transition: transform 0.8s ease;
 }
 
 .glass-card-carousel:hover .card-bg-subtle img {
-    transform: scale(1.05);
+    transform: scale(1.08);
 }
 
 .glass-card-carousel .card-content-max {
-    padding: 30px;
+    padding: 35px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    height: 50%;
+    justify-content: flex-end;
+    /* Align to bottom */
+    height: 45%;
+    position: relative;
+    z-index: 2;
 }
 
-/* RESPONSIVE CAROUSEL */
-@media (max-width: 1024px) {
+.card-tag {
+    /* Refined tag */
+    display: inline-block;
+    padding: 6px 14px;
+    background: rgba(59, 130, 246, 0.15);
+    color: var(--accent-sapphire);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    align-self: flex-start;
+}
+
+.glass-card-carousel h3 {
+    font-size: 2rem;
+    /* Initial Large Font */
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 15px;
+    color: #fff;
+    line-height: 1.1;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    word-wrap: break-word;
+    /* Ensure wrapping */
+
+    /* Clamp font size for very long words if needed, or rely on line-height */
+}
+
+/* Specific fix for long Armenian titles */
+.glass-card-carousel h3:lang(hy) {
+    white-space: normal;
+    /* Allow wrap */
+}
+
+.glass-card-carousel p {
+    font-size: 1rem;
+    color: #b0b0ba;
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    /* Limit text lines */
+    line-clamp: 3;
+    /* Standard property */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+
+/* RESPONSIVE CAROUSEL ADJUSTMENTS */
+@media (max-width: 1200px) {
     .carousel-slide {
-        flex: 0 0 calc(50% - 15px); /* 2 cards visible */
+        flex: 0 0 calc(50% - 20px);
+        /* 2 cards */
     }
 }
 
 @media (max-width: 768px) {
-    .carousel-slide {
-        flex: 0 0 100%; /* 1 card visible */
-    }
     .streams-carousel-container {
-        padding: 0 10px;
+        padding: 0 20px;
     }
+
+    .carousel-slide {
+        flex: 0 0 100%;
+        /* 1 card */
+        min-width: 0;
+    }
+
+    .glass-card-carousel {
+        height: 500px;
+        /* Slightly smaller on mobile */
+    }
+
     .carousel-btn {
-        width: 40px;
-        height: 40px;
+        width: 50px;
+        height: 50px;
         position: absolute;
-        bottom: -60px; /* Moves buttons below cards on mobile */
+        bottom: -70px;
+        /* Below cards */
     }
-    .prev-btn { left: 30%; }
-    .next-btn { right: 30%; }
-    
+
+    .prev-btn {
+        left: 25%;
+    }
+
+    .next-btn {
+        right: 25%;
+    }
+
     .carousel-viewport {
-        margin-bottom: 60px;
+        margin-bottom: 70px;
     }
 }
