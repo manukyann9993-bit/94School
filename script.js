@@ -129,8 +129,17 @@ function updateCarousel() {
     track.style.transform = `translateX(${translateX}px)`;
 
     // Update active class
+    // Update active class
     slides.forEach((s, index) => {
-        s.classList.toggle('active-slide', index === currentSlide + 1); // +1 because we want the middle one active usually? 
+        // Updated active logic for 2-card support
+        let isActive = false;
+        if (slidesPerView === 2) isActive = (index === currentSlide || index === currentSlide + 1);
+        else if (slidesPerView === 1) isActive = (index === currentSlide);
+        else isActive = (index === currentSlide + 1);
+
+        s.classList.toggle('active-slide', isActive);
+        return; // Skip old logic below (hacky but safe for now)
+
         // Actually, logic for active slide depends on view. 
         // For 3 cards, if index 0 is left, index 1 is center.
         // Let's keep simple logic: highlights the one in "focus".
