@@ -114,21 +114,36 @@ function updateCarousel() {
 
     // Simpler approach: Slide width includes gap in calculation if we assume uniform breakdown
     const slideWidthPercent = 100 / slidesPerView;
-    const movePercent = -(currentSlide * slideWidthPercent);
-
     // Apply transform. Note: Gap logic in pure % transform is slightly off without calc, 
     // but if we move by 100% / visual count, it works if container fits exactly.
     // To make it perfect with gap, we can scroll the track? 
     // Or we use the property that slide width is (100% - totalGaps)/N.
-    // Let's try simple translateX.
-    track.style.transform = `translateX(${movePercent}%)`;
+    // Calculate pixel-based stride (Slide Width + Gap)
+    const slide = slides[0];
+    const trackStyle = window.getComputedStyle(track);
+    const gap = parseFloat(trackStyle.gap) || 0;
+    const stride = slide.offsetWidth + gap;
 
-    // Update active class for center/focus effect
-    slides.forEach(s => s.classList.remove('active-slide'));
-    // Mark the visible ones as active
-    for (let i = 0; i < slidesPerView; i++) {
-        if (slides[currentSlide + i]) slides[currentSlide + i].classList.add('active-slide');
-    }
+    // Move track by pixels
+    const translateX = -(currentSlide * stride);
+    track.style.transform = `translateX(${translateX}px)`;
+
+    // Update active class
+    slides.forEach((s, index) => {
+        s.classList.toggle('active-slide', index === currentSlide + 1); // +1 because we want the middle one active usually? 
+        // Actually, logic for active slide depends on view. 
+        // For 3 cards, if index 0 is left, index 1 is center.
+        // Let's keep simple logic: highlights the one in "focus".
+        // If 3 viewed, maybe highlight the 2nd one (index + 1)
+        if (slidesPerView === 3) {
+            s.classList.toggle('active-slide', index === currentSlide + 1);
+        } else if (slidesPerView === 1) {
+            s.classList.toggle('active-slide', index === currentSlide);
+        } else {
+            // For 2 cards, maybe no center highlight or highlight first?
+            s.classList.toggle('active-slide', index === currentSlide);
+        }
+    });
 }
 
 function moveCarousel(direction) {

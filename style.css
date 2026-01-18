@@ -1038,8 +1038,8 @@ body {
     max-width: 100%;
     /* Wider container */
     margin: 0 auto;
-    padding: 0 50px;
-    /* Safe space for absolute buttons */
+    padding: 0 80px;
+    /* Safe space for absolute buttons - Increased */
     display: flex;
     align-items: center;
     position: relative;
@@ -1110,11 +1110,11 @@ body {
 }
 
 .prev-btn {
-    left: 10px;
+    left: 20px;
 }
 
 .next-btn {
-    right: 10px;
+    right: 20px;
 }
 
 .carousel-btn:hover {
