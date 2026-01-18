@@ -1202,17 +1202,19 @@ body {
 }
 
 .glass-card-carousel h3 {
-    font-size: 2rem;
-    /* Initial Large Font */
+    font-size: clamp(1.4rem, 2vw, 1.8rem);
+    /* Responsive font size */
     font-family: 'Playfair Display', serif;
     margin-bottom: 15px;
     color: #fff;
-    line-height: 1.1;
+    line-height: 1.2;
     text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    word-wrap: break-word;
-    /* Ensure wrapping */
-
-    /* Clamp font size for very long words if needed, or rely on line-height */
+    word-break: normal;
+    /* Don't break words mid-word */
+    overflow-wrap: break-word;
+    /* Only break if absolutely necessary */
+    hyphens: auto;
+    /* Use natural hyphenation if supported */
 }
 
 /* Specific fix for long Armenian titles */
