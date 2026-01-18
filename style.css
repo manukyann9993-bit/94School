@@ -1030,3 +1030,141 @@ body {
     font-size: 1rem;
     color: var(--text-muted);
 }
+/* STREAM CAROUSEL STYLES */
+.streams-carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.carousel-viewport {
+    width: 100%;
+    overflow: hidden;
+    padding: 40px 0; /* Space for shadows/hover effects */
+    margin: -40px 0; /* Compensate for padding */
+}
+
+.carousel-track {
+    display: flex;
+    gap: 30px;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.carousel-slide {
+    flex: 0 0 calc(33.333% - 20px); /* 3 cards visible by default */
+    min-width: 300px;
+    opacity: 0.5;
+    transform: scale(0.9);
+    transition: all 0.5s ease;
+    filter: blur(2px);
+}
+
+.carousel-slide.active-slide {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+}
+
+.carousel-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--silk-border);
+    color: var(--text-pure);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s;
+    flex-shrink: 0;
+    z-index: 10;
+}
+
+.carousel-btn:hover {
+    background: var(--accent-sapphire);
+    box-shadow: 0 0 20px var(--accent-sapphire);
+    transform: scale(1.1);
+}
+
+.carousel-btn svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Make stream cards adaptable for carousel */
+.glass-card-carousel {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    background: var(--bg-glass);
+    border: 1px solid var(--silk-border);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    transition: 0.4s ease;
+}
+
+.glass-card-carousel:hover {
+    border-color: var(--accent-sapphire);
+    box-shadow: 0 10px 40px -10px rgba(59, 130, 246, 0.3);
+}
+
+.glass-card-carousel .card-bg-subtle {
+    height: 50%;
+    overflow: hidden;
+    position: relative;
+}
+
+.glass-card-carousel .card-bg-subtle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s ease;
+}
+
+.glass-card-carousel:hover .card-bg-subtle img {
+    transform: scale(1.05);
+}
+
+.glass-card-carousel .card-content-max {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 50%;
+}
+
+/* RESPONSIVE CAROUSEL */
+@media (max-width: 1024px) {
+    .carousel-slide {
+        flex: 0 0 calc(50% - 15px); /* 2 cards visible */
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-slide {
+        flex: 0 0 100%; /* 1 card visible */
+    }
+    .streams-carousel-container {
+        padding: 0 10px;
+    }
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        bottom: -60px; /* Moves buttons below cards on mobile */
+    }
+    .prev-btn { left: 30%; }
+    .next-btn { right: 30%; }
+    
+    .carousel-viewport {
+        margin-bottom: 60px;
+    }
+}

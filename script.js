@@ -50,23 +50,111 @@ const streamsData = [
     }
 ];
 
-function populateStreams() {
-    const grid = document.getElementById('streams-grid');
-    if (!grid) return;
+// CAROUSEL LOGIC
+let currentSlide = 0;
+let carouselInterval;
+const autoPlayDelay = 5000;
 
-    grid.innerHTML = streamsData.map((s, index) => `
-        <a href="${s.url}" class="glass-card-max" style="text-decoration: none; color: inherit;">
-            <div class="card-bg-subtle">
-                <img src="${s.img}" alt="${s.title}">
-            </div>
-            <div class="card-content-max">
-                <span class="card-tag">ՀՈՍՔ ${index + 1}</span>
-                <h3 class="serif">${s.title}</h3>
-                <p>${s.summary}</p>
-            </div>
-        </a>
+function populateStreams() {
+    const track = document.getElementById('streams-track');
+    if (!track) return;
+
+    // Clear existing content
+    track.innerHTML = '';
+
+    // Create Slides
+    track.innerHTML = streamsData.map((s, index) => `
+        <div class="carousel-slide ${index === 0 ? 'active-slide' : ''}" data-index="${index}">
+            <a href="${s.url}" class="glass-card-carousel" style="text-decoration: none; color: inherit;">
+                <div class="card-bg-subtle">
+                    <img src="${s.img}" alt="${s.title}">
+                </div>
+                <div class="card-content-max">
+                    <span class="card-tag">ՀՈՍՔ ${index + 1}</span>
+                    <h3 class="serif">${s.title}</h3>
+                    <p>${s.summary}</p>
+                </div>
+            </a>
+        </div>
     `).join('');
+
+    updateCarousel();
+    startAutoPlay();
+
+    // Pause on hover
+    const container = document.querySelector('.streams-carousel-container');
+    if (container) {
+        container.addEventListener('mouseenter', stopAutoPlay);
+        container.addEventListener('mouseleave', startAutoPlay);
+    }
 }
+
+function updateCarousel() {
+    const track = document.getElementById('streams-track');
+    const slides = document.querySelectorAll('.carousel-slide');
+    if (!track || slides.length === 0) return;
+
+    // Get number of visible slides based on window width
+    let slidesPerView = 1;
+    if (window.innerWidth > 1024) slidesPerView = 3;
+    else if (window.innerWidth > 768) slidesPerView = 2;
+
+    const maxIndex = slides.length - slidesPerView;
+
+    // Looping logic correction
+    if (currentSlide < 0) currentSlide = maxIndex; // Go to end
+    if (currentSlide > maxIndex) currentSlide = 0; // Go to start
+
+    // Calculate move percentage
+    // Each slide width % is 100 / slidesPerView.
+    // We move by index * (100 / slidesPerView) but we must account for gap?
+    // Flexbox gap handling in transform is tricky. safer to use slide width px or simpler calc.
+    // CSS uses calc(33.333% - 20px) etc.
+    // Let's rely on slide offsetWidth which includes gaps if we account for it, or just %.
+
+    // Simpler approach: Slide width includes gap in calculation if we assume uniform breakdown
+    const slideWidthPercent = 100 / slidesPerView;
+    const movePercent = -(currentSlide * slideWidthPercent);
+
+    // Apply transform. Note: Gap logic in pure % transform is slightly off without calc, 
+    // but if we move by 100% / visual count, it works if container fits exactly.
+    // To make it perfect with gap, we can scroll the track? 
+    // Or we use the property that slide width is (100% - totalGaps)/N.
+    // Let's try simple translateX.
+    track.style.transform = `translateX(${movePercent}%)`;
+
+    // Update active class for center/focus effect
+    slides.forEach(s => s.classList.remove('active-slide'));
+    // Mark the visible ones as active
+    for (let i = 0; i < slidesPerView; i++) {
+        if (slides[currentSlide + i]) slides[currentSlide + i].classList.add('active-slide');
+    }
+}
+
+function moveCarousel(direction) {
+    currentSlide += direction;
+    updateCarousel();
+    resetAutoPlay();
+}
+
+function startAutoPlay() {
+    stopAutoPlay();
+    carouselInterval = setInterval(() => {
+        moveCarousel(1);
+    }, autoPlayDelay);
+}
+
+function stopAutoPlay() {
+    if (carouselInterval) clearInterval(carouselInterval);
+}
+
+function resetAutoPlay() {
+    stopAutoPlay();
+    startAutoPlay();
+}
+
+// Update on resize
+window.addEventListener('resize', updateCarousel);
 
 
 // Existing Streams Data...

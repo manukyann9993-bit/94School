@@ -19,7 +19,7 @@
         <div class="aura-blob aura-2"></div>
     </div>
 
-        <nav class="academy-nav">
+    <nav class="academy-nav">
         <div class="nav-brand-academy">94 Ավագ Դպրոց</div>
         <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -32,8 +32,11 @@
         <div class="academy-links" id="academy-links">
             <div class="dropdown">
                 <a href="streams.html" class="academy-link">
-                    Հոսքեր 
-                    <svg class="dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    Հոսքեր
+                    <svg class="dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
                 </a>
                 <div class="dropdown-content">
                     <a href="streams/humanitarian.html" class="dropdown-item">Հումանիտար</a>
@@ -64,8 +67,26 @@
     </header>
 
     <main class="glass-section">
-        <div id="streams-grid" class="glass-grid-symmetrical">
-            <!-- Populated by JS -->
+        <div class="streams-carousel-container">
+            <button class="carousel-btn prev-btn" onclick="moveCarousel(-1)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </button>
+
+            <div class="carousel-viewport">
+                <div id="streams-track" class="carousel-track">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+
+            <button class="carousel-btn next-btn" onclick="moveCarousel(1)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
         </div>
     </main>
 
@@ -85,4 +106,3 @@
 </body>
 
 </html>
-
