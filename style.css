@@ -1035,11 +1035,11 @@ body {
 .streams-carousel-container {
     position: relative;
     width: 100%;
-    max-width: 1600px;
+    max-width: 100%;
     /* Wider container */
     margin: 0 auto;
-    padding: 0 60px;
-    /* More breathing room */
+    padding: 0 40px;
+    /* Reduced padding for more card space */
     display: flex;
     align-items: center;
     gap: 30px;
