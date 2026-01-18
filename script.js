@@ -96,8 +96,8 @@ function updateCarousel() {
 
     // Get number of visible slides based on window width
     let slidesPerView = 1;
-    if (window.innerWidth > 1024) slidesPerView = 2; // Default to 2 cards
-    else if (window.innerWidth > 768) slidesPerView = 2; // Tablet also 2
+    if (window.innerWidth > 1024) slidesPerView = 3; // Default back to 3 cards
+    else if (window.innerWidth > 768) slidesPerView = 2; // Tablet 2
 
     const maxIndex = slides.length - slidesPerView;
 

@@ -1064,8 +1064,8 @@ body {
 }
 
 .carousel-slide {
-    flex: 0 0 calc(50% - 40px);
-    /* 2 cards visible with 40px gap */
+    flex: 0 0 calc(33.333% - 40px);
+    /* 3 cards visible */
     min-width: 350px;
     transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
     transform-style: preserve-3d;
