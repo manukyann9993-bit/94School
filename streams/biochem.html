@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="hy">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Կենսաքիմիա | 94 Ավագ Դպրոց</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Armenian:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Outfit:wght@100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="aura-container">
+        <div class="aura-blob aura-1"></div>
+        <div class="aura-blob aura-2"></div>
+    </div>
+
+    <nav class="academy-nav">
+        <div class="nav-brand-academy">94 Ավագ Դպրոց</div>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+        </button>
+        <div class="academy-links" id="academy-links">
+            <a href="../streams.html" class="academy-link active">Հոսքեր</a>
+            <a href="../projects.html" class="academy-link">Նախագծեր</a>
+            <a href="../news.html" class="academy-link">Նորություններ</a>
+            <a href="../history.html" class="academy-link">Պատմություն</a>
+        </div>
+    </nav>
+
+    <div class="stream-hero">
+        <img src="../images/stream_biochem.png" alt="Biochem">
+        <div class="stream-hero-content">
+            <span class="card-tag"
+                style="background: rgba(59, 130, 246, 0.2); padding: 8px 16px; border-radius: 20px; text-shadow: none;">ՀՈՍՔ
+                6</span>
+            <h1 class="serif" style="font-size: 5rem; line-height: 1; margin: 20px 0 10px;">Կենսաքիմիա</h1>
+            <p style="font-size: 1.2rem; max-width: 600px; color: #ddd;">Կյանքի գիտություն և բնության
+                ուսումնասիրություն։ Բժշկության հիմքերը։</p>
+        </div>
+    </div>
+
+    <main class="stream-content-wrapper">
+        <div class="stream-card">
+            <h2 class="serif" style="font-size: 2.5rem; margin-bottom: 30px;">Ծրագրի Նկարագրություն</h2>
+            <p style="font-size: 1.2rem; line-height: 1.8; color: var(--text-muted); margin-bottom: 40px;">
+                Կենսաքիմիական հոսքը կենտրոնացած է բնագիտական առարկաների խորացված ուսուցման վրա։ Այն հիանալի նախապայման է
+                բժշկական, դեղագործական և կենսաբանական ֆակուլտետներ ընդունվելու համար։
+            </p>
+
+            <h3 style="font-size: 1.5rem; color: var(--text-pure); margin-bottom: 20px;">Ուսումնասիրվող Առարկաներ</h3>
+            <div class="feature-grid">
+                <div class="feature-item">Կենսաբանություն</div>
+                <div class="feature-item">Քիմիա</div>
+                <div class="feature-item">Անատոմիա</div>
+                <div class="feature-item">Գենետիկա</div>
+            </div>
+
+            <div style="margin-top: 60px; text-align: center;">
+                <a href="../streams.html"
+                    style="text-decoration: none; color: var(--text-pure); font-weight: 700; border: 1px solid var(--silk-border); padding: 15px 40px; border-radius: 50px; background: rgba(255,255,255,0.05); transition: 0.3s; display: inline-block;">
+                    Բոլոր Հոսքերը
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <script src="../script.js"></script>
+</body>
+
+</html>

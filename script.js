@@ -1,53 +1,52 @@
 const streamsData = [
     {
         id: 'hum',
+        url: 'streams/humanitarian.html',
         title: 'Հումանիտար',
         summary: 'Լեզուների և բանասիրության խորացված ուսուցում',
-        desc: 'Հումանիտար հոսքը կենտրոնանում է մայրենի և օտար լեզուների խորացված ուսումնասիրության ու գրականության վերլուծության վրա։ Այն զարգացնում է սովորողների թարգմանչական հմտությունները և բառապաշարը:',
-        features: ['Լեզվաբանություն', 'Գրականություն', 'Թարգմանություն'],
-        stats: '85% Ընդունելություն',
-        img: 'images/stream_history.png',
-        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>`
+        img: 'images/stream_humanitarian.png'
+    },
+    {
+        id: 'hist',
+        url: 'streams/history.html',
+        title: 'Պատմագիտական',
+        summary: 'Պատմության և հասարակագիտության խորացված ուսումնասիրություն',
+        img: 'images/stream_history.png'
+    },
+    {
+        id: 'econ',
+        url: 'streams/economics.html',
+        title: 'Տնտեսագիտական',
+        summary: 'Տնտեսագիտության և մաթեմատիկայի ուսուցում',
+        img: 'images/stream_economics.png'
     },
     {
         id: 'ict',
+        url: 'streams/ict.html',
         title: 'ՏՀՏ',
         summary: 'Ծրագրավորման և թվային տեխնոլոգիաների ուսուցում',
-        desc: 'Այս հոսքը նպատակ ունի զարգացնել ալգորիթմական մտածողությունը և տիրապետել ժամանակակից ծրագրավորման լեզուներին։ Սովորողները ձեռք են բերում գործնական հմտություններ IT ոլորտում։',
-        features: ['Python & C++', 'Վեբ Դիզայն', 'Ռոբոտաշինություն'],
-        stats: '95% IT Կարիերա',
-        img: 'images/stream_ict.png',
-        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>`
-    },
-    {
-        id: 'art',
-        title: 'Արվեստ',
-        summary: 'Ստեղծագործական հմտությունների զարգացում',
-        desc: 'Այս ուղղությունը կենտրոնանում է կերպարվեստի, դիզայնի և արվեստի պատմության ուսումնասիրության վրա։ Այն օգնում է սովորողներին բացահայտել իրենց ստեղծագործական ներուժը։',
-        features: ['Կերպարվեստ', 'Թվային Արվեստ', 'Դիզայն'],
-        stats: 'Creative Hub',
-        img: 'images/stream_art.png',
-        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path></svg>`
+        img: 'images/stream_ict.png'
     },
     {
         id: 'phys',
+        url: 'streams/physmath.html',
         title: 'Ֆիզմաթ',
         summary: 'Ֆիզիկայի և մաթեմատիկայի խորացված ուսուցում',
-        desc: 'Այս հոսքը նախատեսված է տրամաբանական և վերլուծական ուժեղ մտածողություն ունեցողների համար։ Սովորողները խորությամբ ուսումնասիրում են բնության օրենքները։',
-        features: ['Լոգիկա', 'Մաթեմատիկա', 'Ինժեներիա'],
-        stats: 'Elite Alumni',
-        img: 'images/stream_physmath.png',
-        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"></rect><line x1="12" y1="18" x2="12" y2="18"></line></svg>`
+        img: 'images/stream_physmath.png'
     },
     {
         id: 'bio',
+        url: 'streams/biochem.html',
         title: 'Կենսաքիմիա',
         summary: 'Կենսաբանության և քիմիայի ուսումնասիրություն',
-        desc: 'Այս ուղղությունը կենտրոնանում է կենդանի օրգանիզմների և նյութերի քիմիական կառուցվածքի հետազոտման վրա։ Հիանալի հիմք է բժշկական կրթության համար։',
-        features: ['Գենետիկա', 'Օրգանական Քիմիա', 'Լաբորատորիա'],
-        stats: 'Future Medics',
-        img: 'images/stream_biochem.png',
-        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 2v7.31"></path><path d="M14 2v7.31"></path><path d="M14 9.3a6.5 6.5 0 1 1-4 0"></path></svg>`
+        img: 'images/stream_biochem.png'
+    },
+    {
+        id: 'art',
+        url: 'streams/art.html',
+        title: 'Արվեստ',
+        summary: 'Ստեղծագործական հմտությունների զարգացում',
+        img: 'images/stream_art.png'
     }
 ];
 
@@ -56,7 +55,7 @@ function populateStreams() {
     if (!grid) return;
 
     grid.innerHTML = streamsData.map((s, index) => `
-        <div class="glass-card-max" onclick="openPortal('${s.id}')">
+        <a href="${s.url}" class="glass-card-max" style="text-decoration: none; color: inherit;">
             <div class="card-bg-subtle">
                 <img src="${s.img}" alt="${s.title}">
             </div>
@@ -65,61 +64,8 @@ function populateStreams() {
                 <h3 class="serif">${s.title}</h3>
                 <p>${s.summary}</p>
             </div>
-        </div>
+        </a>
     `).join('');
-}
-
-function openPortal(id) {
-    const stream = streamsData.find(x => x.id === id);
-    const modal = document.getElementById('portal-modal');
-    const body = document.getElementById('portal-body');
-
-    // Close button now INSIDE the frame
-    body.innerHTML = `
-        <button id="portal-close-internal" class="portal-close-max" onclick="closePortal()">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </button>
-        
-        <div class="portal-visual-max">
-            <img src="${stream.img}" alt="${stream.title}">
-        </div>
-        <div class="portal-content-max">
-            <div style="margin-bottom: 50px;">
-                <span class="card-tag" style="color: var(--accent-sapphire);">ՊԱՇՏՈՆԱԿԱՆ ՈՒՍՈՒՄՆԱԿԱՆ ՊՐՈՖԻԼ</span>
-                <h2 class="serif">${stream.title}</h2>
-                <div style="width: 60px; height: 3px; background: var(--accent-sapphire); margin: 20px 0 30px;"></div>
-            </div>
-
-            <p style="font-size: 1.15rem; color: var(--text-muted); margin-bottom: 50px; line-height: 1.8; font-weight: 300;">
-                ${stream.summary}
-                <br><br>
-                ${stream.desc}
-            </p>
-            
-            <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--silk-border); padding: 40px; border-radius: 30px;">
-                <h4 style="font-size: 0.8rem; letter-spacing: 4px; color: var(--text-pure); margin-bottom: 25px; text-transform: uppercase; font-weight: 800;">Մասնագիտացված Ուսումնական Ծրագիր</h4>
-                <div style="display: flex; flex-wrap: wrap; gap: 15px;">
-                    ${stream.features.map(f => `
-                        <span style="background: rgba(255,255,255,0.03); border: 1px solid var(--silk-border); padding: 12px 28px; border-radius: 100px; font-size: 0.85rem; color: var(--text-pure); font-weight: 600; transition: 0.3s;" onmouseover="this.style.borderColor='var(--accent-sapphire)'" onmouseout="this.style.borderColor='var(--silk-border)'">${f}</span>
-                    `).join('')}
-                </div>
-            </div>
-        </div>
-    `;
-
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-}
-
-function closePortal() {
-    const modal = document.getElementById('portal-modal');
-    if (modal) {
-        modal.classList.remove('active');
-        document.body.style.overflow = 'auto';
-    }
 }
 
 
@@ -333,14 +279,12 @@ function toggleMobileMenu() {
 
 // Global click to close modals
 window.onclick = (e) => {
-    if (e.target.id === 'portal-modal') closePortal();
     if (e.target.id === 'wiki-modal') closeWiki();
     if (e.target.id === 'news-modal') closeNews();
 };
 
 window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-        closePortal();
         if (typeof closeWiki === 'function') closeWiki();
         if (typeof closeNews === 'function') closeNews();
     }
